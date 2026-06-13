@@ -446,7 +446,7 @@ function generateClusterComparison(profiles, selected) {
     ? `Les deux partagent « ${domA} » comme axe dominant.`
     : `G${parseInt(selected[0]) + 1} se définit par « ${domA} », G${parseInt(selected[1]) + 1} par « ${domB} ».`;
 
-  return `${names} — contrastes principaux : ${contrastLines}. ${domText}`;
+  return `${names}. Contrastes principaux : ${contrastLines}. ${domText}`;
 }
 
 // ---------- Cluster comparator ----------
@@ -529,7 +529,7 @@ function ClusterComparator({ k }) {
               </tr>
               <tr>
                 <td>Description</td>
-                {selected.map((id) => <td key={id} className="desc-cell">{profiles[id].summary || "—"}</td>)}
+                {selected.map((id) => <td key={id} className="desc-cell">{profiles[id].summary || "–"}</td>)}
               </tr>
             </tbody>
           </table>
@@ -786,10 +786,10 @@ function OverviewSection({ filtered }) {
       )}
 
       <CommentBox>
-        <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> La démographie des bénévoles de Biblio64 offre le socle descriptif à partir duquel toutes les analyses suivantes prennent sens. La répartition géographique — Béarn, Pays Basque, Pays Basque Intérieur — signale des contextes différenciés : densité associative, accessibilité aux ressources et dynamiques territoriales ne sont pas homogènes. Toute préconisation de formation gagne à être territorialisée plutôt que de s'adresser à un profil moyen fictif.</p>
+        <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> La démographie des bénévoles de Biblio64 offre le socle descriptif à partir duquel toutes les analyses suivantes prennent sens. La répartition géographique (Béarn, Pays Basque, Pays Basque Intérieur) signale des contextes différenciés : densité associative, accessibilité aux ressources et dynamiques territoriales ne sont pas homogènes. Toute préconisation de formation gagne à être territorialisée plutôt que de s'adresser à un profil moyen fictif.</p>
         <p style={{ margin: "0 0 12px" }}>La répartition entre actifs et retraités, lisible sur le graphique de situation professionnelle, conditionne directement la disponibilité et le rythme de mobilisation envisageables. Elle permet aussi d'anticiper les enjeux de transmission : selon la composition du collectif, la question du renouvellement des bénévoles et des compétences associées se pose à des horizons différents.</p>
         <p style={{ margin: "0 0 12px" }}>La distribution de l'ancienneté éclaire la composition du collectif dans le temps. Un noyau de bénévoles très expérimentés coexiste souvent avec des entrants récents : ces deux populations n'ont ni les mêmes besoins de formation, ni les mêmes ressorts d'engagement. Le type de territoire (rural, périurbain, urbain) ajoute une couche de lecture complémentaire sur les conditions concrètes d'exercice du bénévolat.</p>
-        <p style={{ margin: 0 }}>Enfin, la carte des domaines pratiqués — accueil, médiation, gestion documentaire, animation culturelle — dessine le périmètre opérationnel réel de ces bénévoles. Elle constitue la base de référence pour identifier, dans les sections 5 et 9, les thèmes pour lesquels un écart entre formation reçue et besoin exprimé justifie une action de Biblio64.</p>
+        <p style={{ margin: 0 }}>Enfin, la carte des domaines pratiqués (accueil, médiation, gestion documentaire, animation culturelle) dessine le périmètre opérationnel réel de ces bénévoles. Elle constitue la base de référence pour identifier, dans les sections 5 et 9, les thèmes pour lesquels un écart entre formation reçue et besoin exprimé justifie une action de Biblio64.</p>
       </CommentBox>
     </div>);
 
@@ -910,7 +910,7 @@ function ClustersSection({ filtered, k, setK }) {
       <CommentBox>
         <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> L'analyse de clustering ne produit pas un classement hiérarchique des bénévoles, mais une segmentation en groupes homogènes sur les six dimensions du radar (engagement, compétences, réseau, formation, autonomie, animation). L'intérêt opérationnel est de sortir de la logique de l'individu moyen pour identifier des sous-populations avec des besoins spécifiques, qui méritent des réponses différenciées.</p>
         <p style={{ margin: "0 0 12px" }}>Le dendrogramme illustre la logique du regroupement : il montre à quel niveau de proximité deux individus ou deux groupes sont fusionnés, et donne ainsi une idée de la compacité des clusters retenus. Un dendrogramme avec des fusions tardives et bien espacées indique des groupes nettement distincts ; des fusions précoces suggèrent une population plus homogène, où les différences entre groupes sont moins tranchées.</p>
-        <p style={{ margin: "0 0 12px" }}>Les effectifs par cluster permettent d'apprécier la robustesse statistique de chaque groupe : un groupe très petit (5 % ou moins de la population) doit être interprété avec prudence — il peut refléter une réalité marginale ou un artefact de la méthode. Les groupes larges fournissent les bases les plus solides pour des recommandations généralisables.</p>
+        <p style={{ margin: "0 0 12px" }}>Les effectifs par cluster permettent d'apprécier la robustesse statistique de chaque groupe : un groupe très petit (5 % ou moins de la population) doit être interprété avec prudence : il peut refléter une réalité marginale ou un artefact de la méthode. Les groupes larges fournissent les bases les plus solides pour des recommandations généralisables.</p>
         <p style={{ margin: 0 }}>Le radar comparatif est la pièce maîtresse de cette section : en superposant les profils moyens de chaque groupe, il rend visible les axes sur lesquels les groupes se distinguent le plus. Ces contrastes orientent directement la priorisation des thèmes de formation et la personnalisation des parcours que Biblio64 peut proposer à chaque profil type.</p>
       </CommentBox>
     </div>);
@@ -948,7 +948,7 @@ function GapRadar({ k }) {
 
   return (
     <div className="gap-radar" style={{ marginBottom: "32px" }}>
-      <h3 style={{ fontSize: "18px", fontWeight: 600, marginBottom: "16px", color: "var(--ink)" }}>Formations Biblio64 — besoins et formations reçues</h3>
+      <h3 style={{ fontSize: "18px", fontWeight: 600, marginBottom: "16px", color: "var(--ink)" }}>Formations Biblio64 : besoins et formations reçues</h3>
       <p style={{ fontSize: "13px", color: "var(--ink-soft)", margin: "0 0 16px", maxWidth: "640px" }}>
         13 sujets de formation proposés par la Biblio64. Besoin exprimé : moyenne de l'intérêt déclaré (échelle 0–100). Formation reçue : pourcentage de bénévoles ayant suivi la formation.
       </p>
@@ -1133,13 +1133,13 @@ function ActiviteSection() {
       </div>
       {DATA.tachesHeatmap?.lignes?.length > 0 && (
         <div className="chart-card chart-card-wide">
-          <h4>Tâches pratiquées — fréquence</h4>
+          <h4>Tâches pratiquées : fréquence</h4>
           <HeatmapTable colonnes={DATA.tachesHeatmap.colonnes} lignes={DATA.tachesHeatmap.lignes} labelKey="tache" />
         </div>
       )}
       {DATA.documentsHeatmap?.lignes?.length > 0 && (
         <div className="chart-card chart-card-wide">
-          <h4>Documents utilisés — fréquence</h4>
+          <h4>Documents utilisés : fréquence</h4>
           <HeatmapTable colonnes={DATA.documentsHeatmap.colonnes} lignes={DATA.documentsHeatmap.lignes} labelKey="document" />
         </div>
       )}
@@ -1165,7 +1165,7 @@ function ActiviteSection() {
       </div>
 
       <CommentBox>
-        <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> Le volume hebdomadaire de l'activité bénévole constitue l'une des données les plus directement opérationnelles de l'enquête. Le graphique des tâches pratiquées chaque semaine donne à voir quelles fonctions sont réellement portées par les bénévoles — par opposition aux tâches occasionnelles ou réservées à un professionnel — et dans quelles proportions ces fonctions sont partagées au sein de la population.</p>
+        <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> Le volume hebdomadaire de l'activité bénévole constitue l'une des données les plus directement opérationnelles de l'enquête. Le graphique des tâches pratiquées chaque semaine donne à voir quelles fonctions sont réellement portées par les bénévoles (par opposition aux tâches occasionnelles ou réservées à un professionnel) et dans quelles proportions ces fonctions sont partagées au sein de la population.</p>
         <p style={{ margin: "0 0 12px" }}>Le temps consacré chaque semaine est une variable clé pour la faisabilité des formations : un bénévole engagé deux heures par semaine n'a pas les mêmes contraintes qu'un bénévole présent toute une journée. Cette distribution conditionne les formats acceptables (présentiel long, modules courts en ligne, tutorat pair-à-pair) et l'intensité des formations envisageables.</p>
         <p style={{ margin: "0 0 12px" }}>Les heatmaps de tâches et de documents permettent une lecture à deux niveaux : horizontale (quelles tâches reviennent le plus souvent sur la semaine ?) et verticale (y a-t-il des profils de bénévoles spécialisés sur certaines fonctions, ou une polyvalence généralisée ?). Cette structure fonctionnelle nuance le portrait tracé à la section 1 en le rendant actionnable.</p>
         <p style={{ margin: 0 }}>Enfin, le degré de formalisation et le mode de gestion apportent un contexte institutionnel essentiel. Une bibliothèque fortement formalisée offre un cadre dans lequel une politique de formation structurée peut plus facilement s'ancrer ; une gouvernance informelle exige des approches plus souples, fondées sur la confiance et la proximité.</p>
@@ -1220,7 +1220,7 @@ function ReseauSection() {
         )}
         {DATA.profilMiroir?.length > 0 && (
           <div className="chart-card">
-            <h4>Ce qui plaît — ici vs ailleurs</h4>
+            <h4>Ce qui plaît : ici vs ailleurs</h4>
             <div className="chart-h tall">
               <BarChart labels={DATA.profilMiroir.map((d) => d.categorie)} values={DATA.profilMiroir.map((d) => d.pct_ici)} color="#2c5e8c" horizontal max={100} suffix="%" />
             </div>
@@ -1232,7 +1232,7 @@ function ReseauSection() {
         <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> Le réseau relationnel des bénévoles de bibliothèque est souvent le vecteur principal d'apprentissage informel : c'est par les échanges avec d'autres bénévoles, avec les agents de la médiathèque de réseau ou avec des partenaires associatifs que se transmettent les pratiques, les normes et les ressources documentaires. La fréquence et la qualité de ces échanges conditionnent donc directement la capacité des bénévoles à progresser en dehors de toute formation formelle.</p>
         <p style={{ margin: "0 0 12px" }}>Le graphique de fréquence donne à voir quels acteurs sont régulièrement en contact avec les bénévoles et lesquels restent en marge. Une densité relationnelle faible avec Biblio64 ou les bibliothécaires professionnels peut signaler un besoin d'animation de réseau, plus qu'un besoin de formation technique.</p>
         <p style={{ margin: "0 0 12px" }}>Les motifs d'engagement éclairent la psychologie de l'implication : un bénévole motivé par le lien social est sensible à des formats collectifs ; un bénévole motivé par la maîtrise d'une compétence attend des contenus précis et mesurables. Cette donnée devrait guider le ton et la pédagogie des dispositifs proposés par Biblio64, au-delà du simple contenu.</p>
-        <p style={{ margin: 0 }}>Enfin, les rôles occupés et le profil miroir complètent la cartographie fonctionnelle amorcée à la section 2. La comparaison entre le rôle déclaré et le profil radar permet d'identifier des bénévoles dont l'engagement pratique dépasse ce que leur formation ou leur reconnaissance institutionnelle reflète — une ressource inexploitée pour le développement du réseau.</p>
+        <p style={{ margin: 0 }}>Enfin, les rôles occupés et le profil miroir complètent la cartographie fonctionnelle amorcée à la section 2. La comparaison entre le rôle déclaré et le profil radar permet d'identifier des bénévoles dont l'engagement pratique dépasse ce que leur formation ou leur reconnaissance institutionnelle reflète, une ressource inexploitée pour le développement du réseau.</p>
       </CommentBox>
     </div>);
 
@@ -1370,7 +1370,7 @@ function InterRadarsSection() {
       </div>
 
       <CommentBox>
-        <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> La comparaison inter-territoriale est l'une des lectures les plus stimulantes — et les plus délicates — de l'enquête. Elle offre une vue simultanée des trois zones géographiques sur les six dimensions du radar, permettant d'identifier où les territoires convergent et où ils divergent de manière significative. Mais la prudence s'impose : les effectifs du Pays Basque et du Pays Basque Intérieur sont faibles, ce qui rend les conclusions particulièrement sensibles à des cas individuels atypiques.</p>
+        <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> La comparaison inter-territoriale est l'une des lectures les plus stimulantes (et les plus délicates) de l'enquête. Elle offre une vue simultanée des trois zones géographiques sur les six dimensions du radar, permettant d'identifier où les territoires convergent et où ils divergent de manière significative. Mais la prudence s'impose : les effectifs du Pays Basque et du Pays Basque Intérieur sont faibles, ce qui rend les conclusions particulièrement sensibles à des cas individuels atypiques.</p>
         <p style={{ margin: "0 0 12px" }}>Lorsqu'un territoire se distingue nettement des autres sur une dimension, deux hypothèses doivent être testées avant de conclure. Première hypothèse : une différence réelle de pratiques, de ressources ou de contexte qui explique le score plus élevé ou plus faible. Deuxième hypothèse : un biais de composition de l'échantillon (profil d'âge, ancienneté, type de territoire dans le territoire) qui explique mécaniquement l'écart sans qu'il reflète une différence de fond.</p>
         <p style={{ margin: "0 0 12px" }}>Les dimensions où les trois territoires sont proches suggèrent des besoins communs sur lesquels une réponse de Biblio64 peut être mutualisée sans différenciation territoriale. Les dimensions où les écarts sont marqués invitent à une approche localisée, voire à des dispositifs distincts selon le contexte.</p>
         <p style={{ margin: 0 }}>Cette section est également utile pour des conversations avec les partenaires institutionnels de Biblio64 (DRAC, Département) : elle fournit un argument visuel sur les inégalités territoriales de l'offre de formation et de la structuration du bénévolat bibliothécaire en Pyrénées-Atlantiques.</p>
@@ -1385,7 +1385,7 @@ function FreinsSection() {
     <div>
       {items.length > 0 && (
         <div className="chart-card chart-card-wide">
-          <h4>Freins aux projets — distribution des catégories</h4>
+          <h4>Freins aux projets : distribution des catégories</h4>
           <div className="chart-h tall">
             <BarChart
               labels={items.map((d) => d.categorie)}
@@ -1400,7 +1400,7 @@ function FreinsSection() {
       )}
       {DATA.freinsComposites?.length > 0 && (
         <div className="chart-card chart-card-wide">
-          <h4>Freins composites — catégories les plus citées</h4>
+          <h4>Freins composites : catégories les plus citées</h4>
           <div className="chart-h tall">
             <BarChart labels={DATA.freinsComposites.map((d) => d.categorie)} values={DATA.freinsComposites.map((d) => d.n)} color="#9b6b4a" horizontal />
           </div>
@@ -1461,8 +1461,8 @@ function AnimationSection() {
       )}
 
       <CommentBox>
-        <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> La capacité d'animation est l'une des compétences les plus différenciantes dans le paysage du bénévolat bibliothécaire : elle distingue les bénévoles centrés sur la gestion documentaire de ceux qui portent une fonction de médiation culturelle active. Le graphique de capacité déclarée permet de mesurer la proportion de bénévoles qui se positionnent comme capables d'animer — avec ou sans soutien — et ceux qui s'en sentent éloignés.</p>
-        <p style={{ margin: "0 0 12px" }}>La distinction entre "capable de manière autonome" et "capable avec soutien" est particulièrement précieuse pour calibrer une offre de formation : le deuxième groupe représente un potentiel de montée en compétences directement mobilisable, sans nécessiter une formation longue ou coûteuse. Un accompagnement ciblé — tutorat, co-animation, partage de ressources — peut suffire à lever le frein.</p>
+        <p style={{ margin: "0 0 12px" }}><strong>Ce que révèle cette section.</strong> La capacité d'animation est l'une des compétences les plus différenciantes dans le paysage du bénévolat bibliothécaire : elle distingue les bénévoles centrés sur la gestion documentaire de ceux qui portent une fonction de médiation culturelle active. Le graphique de capacité déclarée permet de mesurer la proportion de bénévoles qui se positionnent comme capables d'animer (avec ou sans soutien) et ceux qui s'en sentent éloignés.</p>
+        <p style={{ margin: "0 0 12px" }}>La distinction entre "capable de manière autonome" et "capable avec soutien" est particulièrement précieuse pour calibrer une offre de formation : le deuxième groupe représente un potentiel de montée en compétences directement mobilisable, sans nécessiter une formation longue ou coûteuse. Un accompagnement ciblé (tutorat, co-animation, partage de ressources) peut suffire à lever le frein.</p>
         <p style={{ margin: "0 0 12px" }}>Le croisement entre expérience et formation révèle si les compétences d'animation sont principalement autodidactes ou si elles ont été structurées par des dispositifs formels. Une proportion élevée d'animateurs sans formation spécifique indique un besoin latent fort et une opportunité pour Biblio64 de valoriser des pratiques existantes en leur donnant un cadre reconnu.</p>
         <p style={{ margin: 0 }}>La diversité des types d'animation organisés dessine enfin un répertoire d'expériences à partir duquel Biblio64 peut construire une communauté de pratiques : les bénévoles qui animent des ateliers, des conférences ou des expositions ont des savoir-faire mutualisables, à condition que des espaces d'échange soient créés pour les mobiliser collectivement.</p>
       </CommentBox>
@@ -1507,13 +1507,13 @@ function PoursuiteSection() {
       {DATA.profilPoursuiteAge?.oui?.length > 0 && (
         <div className="grid-charts">
           <div className="chart-card">
-            <h4>Profil par âge — Disponibles (Oui)</h4>
+            <h4>Profil par âge : disponibles (Oui)</h4>
             <div className="chart-h">
               <BarChart labels={DATA.profilPoursuiteAge.oui.map((d) => d.modalite)} values={DATA.profilPoursuiteAge.oui.map((d) => d.pct)} color="#4a7ebf" max={100} suffix="%" />
             </div>
           </div>
           <div className="chart-card">
-            <h4>Profil par âge — Non disponibles</h4>
+            <h4>Profil par âge : non disponibles</h4>
             <div className="chart-h">
               <BarChart labels={DATA.profilPoursuiteAge.non.map((d) => d.modalite)} values={DATA.profilPoursuiteAge.non.map((d) => d.pct)} color="#c0392b" max={100} suffix="%" />
             </div>
@@ -1530,7 +1530,7 @@ function PoursuiteSection() {
     </div>);
 }
 
-// All sections wired up — order matches original 13 sections
+// All sections wired up, order matches original 13 sections
 function ReportBody({ filtered }) {
   const [k, setK] = useState(2);
   const [openSet, setOpenSet] = useState(new Set(["overview", "clusters", "gap"]));
@@ -1589,7 +1589,7 @@ function ReportBody({ filtered }) {
 
 }
 
-// Static section meta — used by tab strips outside the report
+// Static section meta, used by tab strips outside the report
 const SECTION_META = [
 { id: "overview",   num: "01", label: "Vue d'ensemble", title: "Vue d'ensemble de la population" },
 { id: "activite",   num: "02", label: "Activité",       title: "Activité hebdomadaire & temps" },

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Variation A — Pyrénées éditoriale</title>
+<title>Variation A : Pyrénées éditoriale</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -358,10 +358,11 @@ body {
   z-index: 1;
   cursor: zoom-in;
 }
-.chart-card:hover {
+.chart-card.zoomed {
   transform: scale(2.1);
   z-index: 200;
   box-shadow: 0 8px 48px rgba(29,25,22,0.35);
+  cursor: zoom-out;
 }
 .chart-card-wide { grid-column: span 2; }
 .chart-card h4 {
@@ -696,7 +697,7 @@ function formatGeneratedAt(iso) {
   }
 }
 
-// Tweak defaults — JSON for host persistence
+// Tweak defaults, JSON for host persistence
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "primary": "#c1392f",
   "secondary": "#2c5e8c",
@@ -845,6 +846,18 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+<script>
+// Agrandissement des graphiques au clic (et non au survol).
+// Délégation sur document : fonctionne quel que soit le moment de rendu React.
+document.addEventListener("click", function (e) {
+  var card = e.target.closest(".chart-card");
+  document.querySelectorAll(".chart-card.zoomed").forEach(function (z) {
+    if (z !== card) z.classList.remove("zoomed");
+  });
+  if (card) card.classList.toggle("zoomed");
+});
 </script>
 </body>
 </html>
