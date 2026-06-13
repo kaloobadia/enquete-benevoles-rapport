@@ -358,11 +358,24 @@ body {
   z-index: 1;
   cursor: zoom-in;
 }
+/* Agrandissement au clic : par la taille (et non transform:scale) pour rester
+   net (Chart.js se redessine) et ne jamais déborder de la fenêtre. */
 .chart-card.zoomed {
-  transform: scale(2.1);
-  z-index: 200;
-  box-shadow: 0 8px 48px rgba(29,25,22,0.35);
+  position: fixed;
+  inset: 4vh 4vw;
+  width: auto; height: auto;
+  margin: 0;
+  z-index: 1000;
+  overflow: auto;
+  box-shadow: 0 8px 48px rgba(29,25,22,0.45);
   cursor: zoom-out;
+}
+.chart-card.zoomed .chart-h,
+.chart-card.zoomed .chart-h.tall,
+.chart-card.zoomed .chart-h.xtall { height: 80vh; }
+body.has-zoom::before {
+  content: ""; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45); z-index: 999;
 }
 .chart-card-wide { grid-column: span 2; }
 .chart-card h4 {
@@ -857,6 +870,7 @@ document.addEventListener("click", function (e) {
     if (z !== card) z.classList.remove("zoomed");
   });
   if (card) card.classList.toggle("zoomed");
+  document.body.classList.toggle("has-zoom", !!document.querySelector(".chart-card.zoomed"));
 });
 </script>
 </body>
