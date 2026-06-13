@@ -91,6 +91,9 @@ function applyChartDefaults() {
   window.Chart.defaults.color = cssVar("--chart-tick", "#64748b");
   window.Chart.defaults.borderColor = cssVar("--chart-grid", "rgba(0,0,0,0.06)");
   window.Chart.defaults.font.family = getComputedStyle(document.body).fontFamily || "Inter, sans-serif";
+  // Nettete de base : un devicePixelRatio fractionnaire (mise a l'echelle Windows
+  // 125/150 %) rend les canvas flous. On force un ratio entier et au moins double.
+  window.Chart.defaults.devicePixelRatio = Math.min(4, Math.max(2, Math.ceil(window.devicePixelRatio || 1)));
 }
 applyChartDefaults();
 

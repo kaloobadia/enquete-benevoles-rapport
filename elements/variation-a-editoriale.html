@@ -871,6 +871,17 @@ document.addEventListener("click", function (e) {
   });
   if (card) card.classList.toggle("zoomed");
   document.body.classList.toggle("has-zoom", !!document.querySelector(".chart-card.zoomed"));
+  // Forcer Chart.js a se redessiner a la nouvelle taille (sinon le canvas reste
+  // a sa petite resolution et apparait flou une fois agrandi).
+  requestAnimationFrame(function () {
+    document.querySelectorAll(".chart-card canvas").forEach(function (cv) {
+      if (window.Chart && Chart.getChart) {
+        var inst = Chart.getChart(cv);
+        if (inst) inst.resize();
+      }
+    });
+    window.dispatchEvent(new Event("resize"));
+  });
 });
 </script>
 </body>
