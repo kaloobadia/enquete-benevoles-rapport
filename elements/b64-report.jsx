@@ -607,7 +607,7 @@ function HeatmapTable({ colonnes, lignes, labelKey, max = 100 }) {
     return `rgb(${r},${g},${b})`;
   };
   return (
-    <div style={{ overflowX: "auto", margin: "24px 0", border: "1px solid var(--rule)", borderRadius: "6px", background: "var(--paper)", boxShadow: "var(--shadow)" }}>
+    <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
         <thead>
           <tr>
