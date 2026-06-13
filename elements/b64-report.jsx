@@ -607,20 +607,20 @@ function HeatmapTable({ colonnes, lignes, labelKey, max = 100 }) {
     return `rgb(${r},${g},${b})`;
   };
   return (
-    <div style={{ overflowX: "auto" }}>
-      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px" }}>
+    <div style={{ overflowX: "auto", margin: "24px 0", border: "1px solid var(--rule)", borderRadius: "6px", background: "var(--paper)", boxShadow: "var(--shadow)" }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
         <thead>
           <tr>
-            <th style={{ textAlign: "left", padding: "6px 8px", color: "var(--ink-soft)", borderBottom: "2px solid var(--chart-grid, #e2e8f0)" }}></th>
-            {colonnes.map((c) => <th key={c} style={{ padding: "6px 8px", color: "var(--ink-soft)", borderBottom: "2px solid var(--chart-grid, #e2e8f0)", whiteSpace: "nowrap" }}>{c}</th>)}
+            <th style={{ textAlign: "left", padding: "8px 12px", color: "var(--ink)", fontWeight: 600, borderBottom: "2px solid var(--rule)", minWidth: "150px" }}></th>
+            {colonnes.map((c) => <th key={c} style={{ padding: "8px 12px", textAlign: "center", color: "var(--ink)", fontWeight: 600, borderBottom: "2px solid var(--rule)", whiteSpace: "nowrap" }}>{c}</th>)}
           </tr>
         </thead>
         <tbody>
           {lignes.map((row, i) => (
             <tr key={i}>
-              <td style={{ padding: "6px 8px", color: "var(--ink)", fontWeight: 500, whiteSpace: "nowrap" }}>{row[labelKey]}</td>
+              <td style={{ padding: "7px 12px", textAlign: "left", color: "var(--ink)", fontWeight: 400, whiteSpace: "nowrap", minWidth: "150px", borderBottom: "1px solid var(--rule)" }}>{row[labelKey]}</td>
               {row.valeurs.map((v, j) => (
-                <td key={j} style={{ padding: "6px 8px", textAlign: "center", background: cellColor(v), color: v > 50 ? "#fff" : "var(--ink)", fontWeight: v > 30 ? 600 : 400, borderRadius: "2px" }}>
+                <td key={j} style={{ padding: "7px 12px", textAlign: "center", background: cellColor(v), color: "#1d1916", fontWeight: 600, borderBottom: "1px solid var(--rule)" }}>
                   {v}%
                 </td>
               ))}
