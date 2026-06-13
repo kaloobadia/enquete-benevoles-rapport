@@ -332,6 +332,16 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Rythme vertical : aucune visualisation ne doit en toucher une autre.
+   Indépendant de la profondeur d'imbrication et des fragments. */
+.acc-body .chart-card,
+.acc-body .grid-charts,
+.acc-body .gap-chart,
+.acc-body .gap-heatmap,
+.acc-body .gap-top { margin-top: 20px; }
+/* Exceptions : les cartes internes à une grille sont espacées par son gap. */
+.acc-body .grid-charts .chart-card { margin-top: 0; }
+
 /* ---------- Charts ---------- */
 .grid-charts {
   display: grid; grid-template-columns: repeat(3, 1fr);
